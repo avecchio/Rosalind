@@ -3,16 +3,16 @@ import sys
 def main(argv):
     filename = argv[1]
 
-    strand = ''
+    dna_strand = ''
     with open(filename, 'r') as file:
-        strand = file.read().replace('\n', '')
+        dna_strand = file.read().replace('\n', '')
 
     adenine = 0
     thymine = 0
     cytosine = 0
     guanine = 0
 
-    for raw_amino_acid in strand:
+    for raw_amino_acid in dna_strand:
         amino_acid = raw_amino_acid.upper()
 
         print(amino_acid)
