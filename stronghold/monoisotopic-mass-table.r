@@ -7,9 +7,9 @@ mass_table <- hash( A=71.03711, C=103.00919, D=115.02694, E=129.04259, F=147.068
 protein <- args[1]
 amino_acids <- strsplit(protein, "")[[1]]
 
-total <- 0
+total <- double(length = 10)
 for (amino_acid in amino_acids) {
   total <- sum(total, mass_table[[amino_acid]])
 }
 
-print(round(total))
+print(total)
