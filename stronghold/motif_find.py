@@ -1,16 +1,20 @@
 import sys
+import re
 
 def main(argv):
-    motif = argv[1]
-    filename = argv[2]
+    filename = argv[1]
 
     dna_strand = ""
+    motif = ""
     with open(filename, 'r') as file:
-        strand = file.read().replace('\n', '')
+        strand = file.read()
+        dna_strand = strand.split('\n')[0]
+        motif = strand.split('\n')[1]
 
-    motif_len = len(motif)
-    dna_strand_length = len(dna_strand)
+    indicies = []
+    for match in re.finditer(motif, dna_strand, flags=re.VERBOSE):
+        indicies.append(str(match.start() + 1))
+    print(' '.join(indicies))
 
-    
 if __name__ == "__main__":
-   main(sys.argv)
+    main(sys.argv)
