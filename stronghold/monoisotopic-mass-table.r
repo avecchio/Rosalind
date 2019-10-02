@@ -12,4 +12,4 @@ for (amino_acid in amino_acids) {
   total <- sum(total, mass_table[[amino_acid]])
 }
 
-print(total)
+sprintf("%.3f", total)
